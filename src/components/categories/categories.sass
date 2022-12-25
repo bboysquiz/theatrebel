@@ -1,0 +1,108 @@
+@import '../../assets/variables.sass'
+
+.categories
+    background-color: $bg-default-second
+    padding-top: 80px
+    display: flex
+    justify-content: center
+    &__container
+        display: flex
+        justify-content: left
+        flex-wrap: wrap
+        width: 1206px
+    &__title
+        font-weight: 700
+        font-family: Inter
+        color: $title-color
+        font-size: 24px
+        line-height: 28.8px
+        margin-bottom: 12px
+    &__descr
+        width: 100%
+        font-weight: 400
+        font-family: Inter
+        color: rgba(127, 131, 139, .7)
+        font-size: 18px
+        line-height: 21.6px
+        margin-bottom: 32px
+    &__block
+        display: flex
+        justify-content: space-between
+        width: 1206px
+        &-item
+            width: 272px
+            display: flex
+            justify-content: left
+            flex-wrap: wrap
+            background-color: $bg-default 
+            &:last-child
+                & .categories__block-img
+                    height: 409px
+                & .categories__block-title
+                    position: absolute
+                    top: -205px
+                    left: 16px
+                    font-weight: 700
+                    font-size: 24px
+                    line-height: 28.8px
+                    width: 140px
+                & .categories__block-descr
+                    position: absolute
+                    top: -135px
+                    left: 16px
+                    width: 100%
+
+        &-info
+            padding-left: 16px
+            position: relative
+            width: 100%
+        &-img
+            width: 272px
+            height: 157px
+        &-title
+            font-weight: 600
+            font-family: Inter
+            font-size: 16px
+            line-height: 24px
+            color: $title-color
+            width: 100%
+            margin-bottom: 2px
+        &-subtitle
+            font-weight: 400
+            font-family: Inter
+            font-size: 14px
+            line-height: 21px
+            color: rgba(127, 131, 139, .7)
+            width: 100%
+            margin-bottom: 16px
+        &-descr
+            font-weight: 400
+            font-family: Inter
+            font-size: 14px
+            line-height: 21px
+            color: $title-color
+            width: 100%
+        &-link
+            margin-top: 34px
+            color: #008efa
+            cursor: pointer
+            font-family: Inter
+            font-weight: 400
+            font-size: 12px
+            line-height: 14.4px
+            text-decoration: underline
+        &-access
+            color: #eb3333
+            font-family: Inter
+            font-weight: 400
+            font-size: 12px
+            line-height: 14.4px
+        &-addInfo
+            position: absolute
+            bottom: 30px
+            left: 16px
+        
+            
+
+
+        

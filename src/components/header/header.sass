@@ -1,0 +1,132 @@
+@import '../../assets/variables.sass'
+    
+.header
+    background-color: $bg-default
+    display: flex
+    justify-content: center
+    align-items: center
+    border-bottom: 1px solid rgba(246, 251, 253, .28)
+    &__container
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-top: 20px
+        margin-bottom: 20px
+    &__search
+        &-block
+            position: relative
+        &-input
+            background-color: #121212
+            border: 1px solid rgba(246, 251, 253, .16)
+            border-radius: 4px
+            height: 40px
+            width: 260px
+            padding-left: 37px
+        &-lens
+            position: absolute
+            top: 50%
+            margin-top: -8px
+            left: 12px
+@media screen and (max-width: 430px)
+    .header
+        &__container
+            width: 340px
+            justify-content: space-between
+            height: 80px
+        &__search
+            &-input
+                padding-left: 0
+    .search
+        &_closed
+            display: none
+            width: 0
+            height: 40px
+            &-animation
+                animation: .7s search_fadeOut ease-in-out
+        &_opened
+            display: flex
+            height: 40px
+            width: 260px
+            padding-left: 37px
+            &-animation
+                animation: .7s search_fadeIn ease-in-out
+    .lens
+        &_right
+            left: -16px
+            &-animation
+                animation: .7s lens_slideRight ease-in-out
+        &_left
+            left: 12px
+            &-animation
+                animation: .7s lens_slideLeft ease-in-out
+    @keyframes search_fadeIn 
+        0%
+            width: 0
+            height: 40px
+            padding-left: 0px
+        100%
+            width: 260px
+            height: 40px
+            padding-left: 37px
+    @keyframes search_fadeOut 
+        0%
+            display: flex
+            width: 260px
+            height: 40px
+            padding-left: 37px
+        99.999999999999%
+            display: flex
+            width: 0
+            height: 40px
+            padding-left: 0
+        100%
+            display: none
+            width: 0
+            height: 40px
+            padding-left: 0
+    @keyframes lens_slideLeft
+        0%
+            left: -16px
+        100%
+            left: 12px
+
+    @keyframes lens_slideRight
+        0%
+            left: 12px
+        100%
+            left: -16px
+            
+@media screen and (max-width: 320px)
+    .header
+        &__container
+            width: 288px
+            justify-content: space-between
+            height: 80px
+    .search
+        &_opened
+            width: 170px
+    @keyframes search_fadeIn 
+        0%
+            width: 0
+            height: 40px
+            padding-left: 0px
+        100%
+            width: 170px
+            height: 40px
+            padding-left: 37px
+    @keyframes search_fadeOut 
+        0%
+            display: flex
+            width: 170px
+            height: 40px
+            padding-left: 37px
+        99.999999999999%
+            display: flex
+            width: 0
+            height: 40px
+            padding-left: 0
+        100%
+            display: none
+            width: 0
+            height: 40px
+            padding-left: 0

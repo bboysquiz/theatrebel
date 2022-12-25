@@ -1,0 +1,160 @@
+@import '../../assets/variables.sass'
+
+.mainscreen
+    background-color: $bg-default-second
+    display: flex
+    justify-content: center
+    align-items: center
+    &__container
+        margin-top: 60px
+        width: 1206px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 80px
+        background-color: $bg-default
+        border-radius: 32px
+    &__info
+        &-block
+            width: 416px
+            display: flex
+            justify-content: left
+            flex-wrap: wrap
+    &__title
+        margin-bottom: 40px
+        color: #8A0204
+        font-weight: 800
+        font-size: 32px
+        line-height: 38.4px
+        font-family: Inter
+    &__subtitle
+        margin-bottom: 24px
+        color: #e7e7e7
+        font-weight: 800
+        font-size: 32px
+        line-height: 38.4px
+        font-family: Inter
+    &__descr
+        margin-bottom: 48px
+        color: #e7e7e7
+        font-weight: 400
+        font-size: 18px
+        line-height: 21.6px
+        font-family: Inter
+    &__button
+        background-color: $bg-button
+        width: 211px
+        height: 48px
+        border-radius: 12px
+        border: none
+        color: #fff
+        line-height: 48px
+        font-size: 18px
+        weight: 400
+        font-family: Inter
+        display: flex
+        justify-content: space-around
+        align-items: center
+        &_mobile
+            display: none
+
+@media screen and (max-width: 1280px)
+    .mainscreen
+        &__container
+            width: 1184px
+
+@media screen and (max-width: 1024px)
+    .mainscreen
+        &__container
+            width: 936px
+
+@media screen and (max-width: 774px)
+    .mainscreen
+        &__container
+            width: 680px
+            flex-wrap: wrap
+            padding: 40px
+        &__info
+            &-block
+                width: 596px
+        &__title
+            margin-bottom: 16px
+            width: 100%
+        &__subtitle
+            margin-bottom: 8px
+            margin-bottom: 24px
+            color: #e7e7e7
+            font-weight: 700
+            font-size: 24px
+            line-height: 28.8px
+            font-family: Inter
+        &__descr
+            margin-bottom: 48px
+            color: #e7e7e7
+            font-weight: 400
+            font-size: 14px
+            line-height: 21px
+        &__button
+            display: none
+            &_mobile
+                background-color: $bg-button
+                width: 680px
+                height: 88px
+                border-radius: 12px
+                border: none
+                color: #fff
+                line-height: 30px
+                font-size: 20px
+                weight: 400
+                font-family: Inter
+                display: flex
+                justify-content: center
+                align-items: center
+                position: relative
+                &-pencil
+                    position: absolute
+                    top: 50%
+                    margin-top: -4px
+                    right: 200px
+        &__image
+            margin-bottom: 103px
+            &-block
+                width: 680px
+                display: flex
+                justify-content: center
+@media screen and (max-width: 430px)
+    .mainscreen
+        &__container
+            width: 390px
+            padding: 20px
+        &__info-block
+            width: 306px
+        &__title
+            width: 306px
+        &__subtitle
+            width: 306px
+        &__descr
+            width: 306px
+        &__image
+            width: 306px
+        &__button
+            &_mobile
+                width: 390px
+@media screen and (max-width: 320px)
+    .mainscreen
+        &__container
+            width: 288px
+            padding: 16px
+        &__info-block
+            width: 265px
+        &__title
+            width: 265px
+        &__subtitle
+            width: 265px
+        &__descr
+            width: 265px
+        &__image
+            width: 265px
+        &__button
+            &_mobile
+                width: 288px
