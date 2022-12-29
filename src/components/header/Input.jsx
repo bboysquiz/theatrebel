@@ -9,28 +9,32 @@ const Input = () => {
 
     function openSearch () {
         console.log('toogle')
-        if (toggle === "search_closed") {
-            document.getElementById('header-input').style.display = "flex"
-            setToggleAnimation("search_opened-animation")
-            setToggleLensAnimation("lens_left-animation")
-            setTimeout(() => {
-                setToggle("search_opened")
-                setToggleLens("lens_left")
-                document.getElementById('header-input').focus()
-            }, 670)
-
+        if (window.innerWidth <= 430){
+            if (toggle === "search_closed") {
+                document.getElementById('header-input').style.display = "flex"
+                setToggleAnimation("search_opened-animation")
+                setToggleLensAnimation("lens_left-animation")
+                setTimeout(() => {
+                    setToggle("search_opened")
+                    setToggleLens("lens_left")
+                    document.getElementById('header-input').focus()
+                }, 670)
+    
+            }
         }
+        
     }
     function closeSearch () {
-        if (toggle === "search_opened") {
-            setToggleAnimation("search_closed-animation")
-            setToggleLensAnimation("lens_right-animation")
-            setTimeout(() => {
-                setToggle("search_closed")
-                setToggleLens("lens_right")
-                document.getElementById('header-input').style.display = "none"
-            }, 670)
-            
+        if (window.innerWidth <= 430){
+            if (toggle === "search_opened") {
+                setToggleAnimation("search_closed-animation")
+                setToggleLensAnimation("lens_right-animation")
+                setTimeout(() => {
+                    setToggle("search_closed")
+                    setToggleLens("lens_right")
+                    document.getElementById('header-input').style.display = "none"
+                }, 670)
+            }
         }
     }
   return (

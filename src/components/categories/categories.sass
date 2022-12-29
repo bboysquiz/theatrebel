@@ -7,7 +7,7 @@
     justify-content: center
     &__container
         display: flex
-        justify-content: left
+        justify-content: flex-start
         flex-wrap: wrap
         width: 1206px
     &__title
@@ -17,6 +17,7 @@
         font-size: 24px
         line-height: 28.8px
         margin-bottom: 12px
+        width: 100%
     &__descr
         width: 100%
         font-weight: 400
@@ -25,37 +26,68 @@
         font-size: 18px
         line-height: 21.6px
         margin-bottom: 32px
+        width: 468px
     &__block
         display: flex
         justify-content: space-between
         width: 1206px
+        &-search 
+            display: flex
+            justify-content: start
+            align-content: space-between
+            flex-wrap: wrap
+            height: 409px
+            width: 272px
+            padding: 137px 20px 32px 20px
+            background: url(../../assets/searchingBegin.png) no-repeat center
+            background-size: contain 
+            background-color: $bg-default
+            & .categories__block-title
+                font-weight: 700
+                font-size: 24px
+                line-height: 28.8px
+                width: 140px
+            & .categories__block-descr
+                width: 231px
+                margin-bottom: 25px
+                margin-top: -15px
+            & .categories__block-btn
+                padding-left: 20px
+                padding-right: 17px
+                display: flex
+                justify-content: space-between
+                align-items: center 
+                background-color: $bg-button 
+                height: 32px
+                border-radius: 8px
+                border: none
+                width: 108px
+                color: #fff
+                font-size: 14px
+                font-weight: 400
+                font-family: Inter
+                line-height: 32px
+                cursor: pointer
+            & .categories__lens-icon
+                width: 10px
+                height: 10px
         &-item
             width: 272px
             display: flex
-            justify-content: left
+            justify-content: start
+            align-content: start
             flex-wrap: wrap
             background-color: $bg-default 
-            &:last-child
-                & .categories__block-img
-                    height: 409px
-                & .categories__block-title
-                    position: absolute
-                    top: -205px
-                    left: 16px
-                    font-weight: 700
-                    font-size: 24px
-                    line-height: 28.8px
-                    width: 140px
-                & .categories__block-descr
-                    position: absolute
-                    top: -135px
-                    left: 16px
-                    width: 100%
-
+            border-radius: 8px
         &-info
             padding-left: 16px
+            margin-top: 28px
             position: relative
             width: 100%
+            display: flex
+            justify-content: start
+            flex-wrap: wrap
+            align-content: space-between
         &-img
             width: 272px
             height: 157px
@@ -66,7 +98,6 @@
             line-height: 24px
             color: $title-color
             width: 100%
-            margin-bottom: 2px
         &-subtitle
             font-weight: 400
             font-family: Inter
@@ -74,7 +105,7 @@
             line-height: 21px
             color: rgba(127, 131, 139, .7)
             width: 100%
-            margin-bottom: 16px
+            margin-top: 2px
         &-descr
             font-weight: 400
             font-family: Inter
@@ -82,6 +113,7 @@
             line-height: 21px
             color: $title-color
             width: 100%
+            margin-top: 16px
         &-link
             margin-top: 34px
             color: #008efa
@@ -91,18 +123,114 @@
             font-size: 12px
             line-height: 14.4px
             text-decoration: underline
+            position: absolute
+            bottom: 20px
         &-access
             color: #eb3333
             font-family: Inter
             font-weight: 400
             font-size: 12px
             line-height: 14.4px
+            margin-top: 54px
         &-addInfo
-            position: absolute
-            bottom: 30px
-            left: 16px
+            margin-top: 56px
+            color: #5b5e64
+            font-weight: 400
+            font-family: Inter
+            font-size: 10px
+            line-height: 12px
         
-            
+@media screen and (max-width: 1280px) 
+    .categories__container
+        width: 1184px
+@media screen and (max-width: 1184px)
+    .categories
+        &__container
+            width: 944px
+            display: flex
+            flex-wrap: wrap
+        &__block
+            width: 944px
+            &-item
+                width: 221px
+            &-search
+                width: 221px
 
-
-        
+            &-img
+                width: 221px
+                height: initial
+@media screen and (max-width: 944px)
+    .categories
+        &__container
+            width: 680px
+        &__block
+            width: 680px
+            display: flex
+            flex-wrap: wrap
+            &-item
+                width: 330px
+                margin-bottom: 20px
+                padding-bottom: 32px
+            &-img
+                width: 330px
+                height: initial
+            &-search
+                width: 330px
+                background-size: cover
+                padding-top: 175px
+                & .categories__block-title
+                    width: 298px
+                & .categories__block-descr
+                    margin-top: -45px
+                & .categories__block-btn
+                    width: 298px
+                    justify-content: center
+                    line-height: 40px
+                    font-size: 16px
+                    font-weight: 400
+                    position: relative
+                    & .categories__lens-icon
+                        position: absolute
+                        right: 90px
+                        width: 14px
+                        height: 14px
+@media screen and (max-width: 680px)
+    body
+        scrollbar-color: rgba(85, 5, 4, .7) $bg-default
+        scrollbar-width: 8px
+    .categories
+        &__container
+            width: 390px
+        &__block
+            flex-wrap: nowrap
+            width: 390px
+            overflow-y: scroll
+            scrollbar-color: rgba(85, 5, 4, .7) $bg-default
+            scrollbar-width: 8px
+            &-item
+                width: 272px
+                margin-right: 33px
+            &-img
+                width: 272px
+                height: 157px
+            &-search
+                width: 272px
+                padding-left: 0
+                padding-right: 0
+                padding-bottom: 0
+                margin-right: 10px
+                & .categories__block-title
+                    width: 140px
+                    margin-bottom: 16px
+                    margin-left: 17.5px
+                & .categories__block-descr
+                    margin-left: 17.5px 
+                & .categories__block-btn
+                    width: 390px
+                    padding: 0
+                    background-repeat: 0
+                    height: 65px
+@media screen and (max-width: 390px)
+    .categories
+        &__container
+            width: 288px

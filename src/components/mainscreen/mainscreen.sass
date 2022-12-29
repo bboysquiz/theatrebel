@@ -55,6 +55,7 @@
         display: flex
         justify-content: space-around
         align-items: center
+        cursor: pointer
         &_mobile
             display: none
 
@@ -63,12 +64,12 @@
         &__container
             width: 1184px
 
-@media screen and (max-width: 1024px)
+@media screen and (max-width: 1184px)
     .mainscreen
         &__container
-            width: 936px
+            width: 944px
 
-@media screen and (max-width: 774px)
+@media screen and (max-width: 944px)
     .mainscreen
         &__container
             width: 680px
@@ -115,14 +116,14 @@
                     position: absolute
                     top: 50%
                     margin-top: -4px
-                    right: 200px
+                    right: 75px
         &__image
             margin-bottom: 103px
             &-block
                 width: 680px
                 display: flex
                 justify-content: center
-@media screen and (max-width: 430px)
+@media screen and (max-width: 680px)
     .mainscreen
         &__container
             width: 390px
@@ -140,7 +141,7 @@
         &__button
             &_mobile
                 width: 390px
-@media screen and (max-width: 320px)
+@media screen and (max-width: 390px)
     .mainscreen
         &__container
             width: 288px
