@@ -1,11 +1,12 @@
 import React from 'react'
 import { categoriesArray } from '../../constants'
+import { Link } from 'react-router-dom'
 
 const CategoryBlock = () => {
   return (
     categoriesArray.map((category, index) => {
         return(
-            <article key={index} className="categories__block-item">
+           <Link to={category.route} key={index} className="categories__block-item">
               <img 
                 src={category.img} 
                 alt={category.alt} 
@@ -20,7 +21,7 @@ const CategoryBlock = () => {
                 <p className="categories__block-access">{category.access}</p>
                 <p className="categories__block-addInfo">{category.addInfo}</p>
               </div>
-            </article>
+          </Link>
         )
     })     
   )

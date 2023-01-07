@@ -1,8 +1,8 @@
 @import '../../assets/variables.sass'
 
-.events
+.festivals-catalog
     background-color: $bg-default-second
-    padding-top: 80px
+    padding-top: 31px
     display: flex
     justify-content: center    
     &__container
@@ -10,6 +10,25 @@
         justify-content: flex-start
         flex-wrap: wrap
         width: 1206px
+    &__pagination
+        width: 256px
+        display: flex
+        justify-content: space-between
+        margin-bottom: 32px
+        &-prev
+            color: rgba(255, 255, 255, .6)
+            font-weight: 400
+            font-family: Inter
+            font-size: 18px
+            line-height: 27px
+            cursor: pointer
+        &-current
+            color: #fff
+            font-weight: 400
+            font-family: Inter
+            font-size: 18px
+            line-height: 27px
+            cursor: pointer
     &__title
         font-weight: 800
         font-family: Inter
@@ -39,19 +58,6 @@
             padding-right: 12px
             background-color: $bg-default-second
             cursor: pointer
-            display: flex
-            justify-content: space-between
-            align-items: center
-            width: 205px
-            &:hover
-                background-color: rgba(85, 5, 4, .3)
-                transition: .3s
-            &:first-child
-                width: 120px
-            &-cross
-                display: none
-                width: 11px
-                height: 11px
         &-select
             margin-top: 23px
             font-weight: 400
@@ -65,52 +71,6 @@
             padding-right: 12px
             background-color: $bg-default-second
             cursor: pointer
-            position: relative
-            width: 185px
-            &:hover
-                background-color: rgba(85, 5, 4, .3)
-                transition: .3s
-            &-type
-                &-choosed
-                    display: flex
-                    justify-content: space-between
-            &-year
-                &-choosed
-                    display: flex
-                    justify-content: space-between
-            &-city
-                &-choosed
-                    display: flex
-                    justify-content: space-between
-        &-ul
-            &-type  
-                position: absolute
-                top: 28px
-                left: -1px
-                display: none
-                z-index: 2
-            &-year
-                position: absolute
-                top: 28px
-                left: -1px
-                display: none
-                z-index: 2
-            &-city
-                position: absolute
-                top: 28px
-                left: -1px
-                display: none
-                z-index: 2
-        &-li
-            color: rgba(127, 131, 139, .7)
-            margin-left: 12px
-            font-size: 14px
-            font-weight: 400
-            line-height: 16.8px
-            font-family: Inter
-            margin-bottom: 16px
-            &:first-child
-                padding-top: 12px
     &__block
         margin-top: 3px
         width: 1206px
@@ -220,77 +180,8 @@
         line-height: 48px
         margin: 80px auto 50px auto
         cursor: pointer
+    
 
-.active
-    display: block
-    background-color: $bg-default
-    width: 185px
-    list-style-type: none
-    animation: .5s listBlockDown
-    height: 100px
-    overflow: scroll
-    border-left: 1px solid rgba(246, 251, 253, .28)
-    border-right: 1px solid rgba(246, 251, 253, .28)
-    border-bottom: 1px solid rgba(246, 251, 253, .28)
-    z-index: 3
-.closed
-    display: block
-    width: 185px
-    background-color: $bg-default
-    list-style-type: none
-    animation: .5s listBlockUp
-    height: 0px
-    overflow: scroll
-.enabled
-    background-color: $bg-default
-    border-bottom: none
-    transition: .5s
-    &:hover
-        background-color: $bg-default
-        transition: .3s
-    &::after
-        position: absolute
-        content: ''
-        bottom: 0
-        left: 50%
-        margin-left: -83.5px
-        display: block
-        width: 167px
-        height: 1px
-        background-color: rgba(246, 251, 253, .28)
-        z-index: 5
-.disabled
-    z-index: 6!important
-.triangle_active
-    transition: .5s
-    transform: rotateX(180deg) rotateY(180deg) 
-.triangle_closed
-    transition: .5s
-    transform: rotateX(360deg) rotateY(360deg) 
-.button_active
-    display: flex
-    &-bg
-        background-color: $bg-default
-        &:hover
-            background-color: $bg-default
-
-@keyframes listBlockDown
-    0%
-        height: 0px
-    100%
-        height: 100px
-@keyframes listBlockUp
-    0%
-        height: 100px
-        border-left: 1px solid rgba(246, 251, 253, .28)
-        border-right: 1px solid rgba(246, 251, 253, .28)
-        border-bottom: 1px solid rgba(246, 251, 253, .28)
-    75%
-        border-left: 1px solid rgba(246, 251, 253, .28)
-        border-right: 1px solid rgba(246, 251, 253, .28)
-        border-bottom: 1px solid rgba(246, 251, 253, .28)
-    100%
-        height: 0px
 @media screen and (max-width: 1206px)
     .events
         &__container
