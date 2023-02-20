@@ -42,15 +42,15 @@
             &-mobile
                 display: none
         &-wrapper
-            width: 1206px
             display: flex
             justify-content: space-between
         &-button
             margin-top: 23px
-            font-weight: 400
+            font-weight: 300
             font-size: 16px
             font-family: Inter
             line-height: 30px
+            letter-spacing: 0px
             color: $title-color
             border-radius: 4px
             border: 1px solid rgba(246, 251, 253, .28)
@@ -58,6 +58,21 @@
             padding-right: 12px
             background-color: $bg-default-second
             cursor: pointer
+            display: flex
+            justify-content: space-between
+            align-items: center
+            width: 205px
+            margin-right: 16px
+            white-space: nowrap
+            &:hover
+                background-color: rgba(85, 5, 4, .3)
+                transition: .3s
+            &:first-child
+                width: 120px
+            &-cross
+                display: none
+                width: 11px
+                height: 11px
         &-select
             margin-top: 23px
             font-weight: 400
@@ -68,9 +83,82 @@
             border-radius: 4px
             border: 1px solid rgba(246, 251, 253, .28)
             padding-left: 12px
-            padding-right: 12px
+            padding-right: 9px
             background-color: $bg-default-second
             cursor: pointer
+            position: relative
+            width: 185px
+            margin-right: 16px
+            white-space: nowrap
+            &:hover
+                background-color: rgba(85, 5, 4, .3)
+                transition: .3s
+            &-type
+                &-choosed
+                    display: flex
+                    justify-content: space-between
+            &-year
+                &-choosed
+                    display: flex
+                    justify-content: space-between
+            &-city
+                &-choosed
+                    display: flex
+                    justify-content: space-between
+        &-ul
+            &-type  
+                position: absolute
+                top: 28px
+                left: -1px
+                display: none
+                z-index: 2
+                width: 185px
+                overflow-y: auto
+                &::-webkit-scrollbar
+                   width: 8px   
+                   border-radius: 4px
+                   background-color: rgba(255, 255, 255, .1)
+                &::-webkit-scrollbar-thumb 
+                    background-color: rgba(255, 255, 255, .6)
+                    border-radius: 4px  
+            &-year
+                position: absolute
+                top: 28px
+                left: -1px
+                display: none
+                z-index: 2
+                width: 146px
+                &::-webkit-scrollbar
+                   width: 8px   
+                   border-radius: 4px
+                   background-color: rgba(255, 255, 255, .1)
+                &::-webkit-scrollbar-thumb 
+                    background-color: rgba(255, 255, 255, .6)
+                    border-radius: 4px
+            &-city
+                position: absolute
+                top: 28px
+                left: -1px
+                display: none
+                z-index: 2
+                width: 174px
+                &::-webkit-scrollbar
+                   width: 8px   
+                   border-radius: 4px
+                   background-color: rgba(255, 255, 255, .1)
+                &::-webkit-scrollbar-thumb 
+                    background-color: rgba(255, 255, 255, .6)
+                    border-radius: 4px   
+        &-li
+            color: rgba(127, 131, 139, .7)
+            margin-left: 12px
+            font-size: 14px
+            font-weight: 400
+            line-height: 16.8px
+            font-family: Inter
+            margin-bottom: 16px
+            &:first-child
+                padding-top: 12px
     &__block
         margin-top: 3px
         width: 1206px
@@ -83,15 +171,26 @@
             padding-left: 20px
             width: 271px
             border-radius: 8px
-            border: 1px solid $bg-default
+            border: 1px solid rgba(246, 251, 253, .28)
             position: relative
             background-size: cover
             background-repeat: no-repeat
             background-position: center
             cursor: pointer
+            display: flex
+            flex-wrap: wrap
+            align-content: space-between
             &:hover
-                border: 1px solid rgba(246, 251, 253, .28)
+                border: 1px solid $bg-default
                 transition: .5s
+                background-color: $bg-default!important
+                background-image: none!important
+                & .events__block-item-info
+                    background-color: #1F0707
+                    transition: .5s
+                & .events__block-item-type
+                    color: $title-color
+                    transition: .5s
             &-title
                 color: #8A0204
                 font-weight: 600
@@ -170,17 +269,93 @@
         margin-top: 80px
         display: flex
         justify-content: center
+        background-color: $bg-default-second
         height: 48px
         width: 179px
         border-radius: 12px
         border: 1px solid rgba(255, 255, 255, .9)
+        color: rgba(255, 255, 255, .9)
         font-family: Inter
         font-weight: 400
         font-size: 18px
         line-height: 48px
         margin: 80px auto 50px auto
         cursor: pointer
+        &:hover
+            background-color: rgba(61, 5, 6, .6)
+.active
+    display: block
+    background-color: $bg-default
+    list-style-type: none
+    animation: .5s listBlockDown
+    height: 100px
+    overflow-y: scroll
+    border-left: 1px solid rgba(246, 251, 253, .28)
+    border-right: 1px solid rgba(246, 251, 253, .28)
+    border-bottom: 1px solid rgba(246, 251, 253, .28)
+    z-index: 3
+.closed
+    display: block
+    background-color: $bg-default
+    list-style-type: none
+    animation: .5s listBlockUp
+    height: 0px
+    overflow: hidden
+.enabled
+    background-color: $bg-default
+    border-bottom: none
+    transition: .5s
+    &:hover
+        background-color: $bg-default
+        transition: .3s
+    &::after
+        position: absolute
+        content: ''
+        bottom: 0
+        left: 12px
+        width: 90%
+        display: block
+        height: 1px
+        background-color: rgba(246, 251, 253, .28)
+        z-index: 5
+.disabled
+    z-index: 6!important
+.choosed
+    background-color: $bg-default!important
+.triangle_active
+    transition: .5s
+    transform: rotateX(180deg) rotateY(180deg) 
+.triangle_closed
+    transition: .5s
+    transform: rotateX(360deg) rotateY(360deg) 
+.button_active
+    display: flex
+    &-bg
+        &-text
+            background-color: $bg-default!important
+            width: 127px!important
+            &:hover
+                background-color: rgba(85, 5, 4, .3)!important
+                transition: .3s
+        &-performance
+            background-color: $bg-default!important
+            width: 208px!important
+            &:hover
+                background-color: rgba(85, 5, 4, .3)!important
+                transition: .3s
+.filter-button
+    &-text
+        width: 105px
+    &-performance
+        width: 189px
+    &-novel
+        width: 185px
+    &-year
+        width: 146px
+    &-city
+        width: 174px
     
+
 
 @media screen and (max-width: 1206px)
     .events

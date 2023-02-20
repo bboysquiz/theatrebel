@@ -20,10 +20,14 @@ const EventFilter = () => {
   const [activeButtonPerformance, setActiveButtonPerformance] = useState('')
   const [activeButtonTextBG, setActiveButtonTextBG] = useState('')
   const [activeButtonPerformanceBG, setActiveButtonPerformanceBG] = useState('')
+  const [choosedFilterType, setChoosedFilterType] = useState('')
+  const [choosedFilterYear, setChoosedFilterYear] = useState('')
+  const [choosedFilterCity, setChoosedFilterCity] = useState('')
   
   const chooseType = (type) => {
     setType(type)
     toggleType()
+    setChoosedFilterType('choosed')
   }
   const toggleType = () => {
     if (typeActive === 'active') {
@@ -40,6 +44,7 @@ const EventFilter = () => {
   const chooseYear = (year) => {
     setYear(year)
     toggleYear()
+    setChoosedFilterYear('choosed')
   }
   const toggleYear = () => {
     if (yearActive === 'active') {
@@ -56,6 +61,7 @@ const EventFilter = () => {
   const chooseCity = (city) => {
     setCity(city)
     toggleCity()
+    setChoosedFilterCity('choosed')
   }
   const toggleCity = () => {
     if (cityActive === 'active') {
@@ -72,7 +78,7 @@ const EventFilter = () => {
     if (filter === 'text') {
       if (activeButtonText === '') {
         setActiveButtonText('button_active')
-        setActiveButtonTextBG('button_active-bg')
+        setActiveButtonTextBG('button_active-bg-text')
       }else{
         setActiveButtonText('')
         setActiveButtonTextBG('')
@@ -80,7 +86,7 @@ const EventFilter = () => {
     } else if (filter === 'performance') {
       if (activeButtonPerformance === '') {
         setActiveButtonPerformance('button_active')
-        setActiveButtonPerformanceBG('button_active-bg')
+        setActiveButtonPerformanceBG('button_active-bg-performance')
       }else{
         setActiveButtonPerformance('')
         setActiveButtonPerformanceBG('')
@@ -90,10 +96,10 @@ const EventFilter = () => {
   }
   return (
     <div className="events__filter-wrapper">
-        <button className={`events__filter-button ${activeButtonTextBG}`} onClick={() => filter('text')}>С текстом <img src={crossImg} alt="cross" className={`events__filter-button-cross ${activeButtonText}`} /></button>
-        <button className={`events__filter-button ${activeButtonPerformanceBG}`} onClick={() => filter('performance')}>Наличие постановок <img src={crossImg} alt="cross" className={`events__filter-button-cross ${activeButtonPerformance}`} /></button>
+        <button className={`events__filter-button filter-button-text ${activeButtonTextBG}`} onClick={() => filter('text')}>С текстом <img src={crossImg} alt="cross" className={`events__filter-button-cross ${activeButtonText}`} /></button>
+        <button className={`events__filter-button filter-button-performance ${activeButtonPerformanceBG}`} onClick={() => filter('performance')}>Наличие постановок <img src={crossImg} alt="cross" className={`events__filter-button-cross ${activeButtonPerformance}`} /></button>
 
-        <div id="type" className={`events__filter-select events__filter-select-type ${typeChoosedActive}`}>
+        <div id="type" className={`events__filter-select events__filter-select-type filter-button-novel ${choosedFilterType} ${typeChoosedActive}`}>
           <div className={`events__filter-select-type-choosed`} onClick={toggleType}>{type} <img src={triangleImg} alt="triangle" className={`events__filter-triangle ${typeActiveTriangle}`} /></div>
             <ul className={`events__filter-ul-type ${typeActive}`}>
               <li className="events__filter-li" onClick={() => chooseType('Пьеса')}>Пьеса</li>
@@ -103,7 +109,7 @@ const EventFilter = () => {
             </ul>
         </div>
 
-        <div id="Year" className={`events__filter-select events__filter-select-year ${yearChoosedActive}`}>
+        <div id="Year" className={`events__filter-select events__filter-select-year filter-button-year ${choosedFilterYear} ${yearChoosedActive}`}>
           <div className="events__filter-select-year-choosed" onClick={toggleYear}>{year} <img src={triangleImg} alt="triangle" className={`events__filter-triangle ${yearActiveTriangle}`} /></div>
           <ul className={`events__filter-ul-year ${yearActive}`}>
             <li className="events__filter-li" onClick={() => chooseYear('2022')}>2022</li>
@@ -113,7 +119,7 @@ const EventFilter = () => {
             <li className="events__filter-li" onClick={() => chooseYear('2018')}>2018</li>
           </ul>
         </div>
-        <div id="City" className={`events__filter-select events__filter-select-city ${cityChoosedActive}`}>
+        <div id="City" className={`events__filter-select events__filter-select-city filter-button-city ${choosedFilterCity} ${cityChoosedActive}`}>
           <div className="events__filter-select-city-choosed" onClick={toggleCity}>{city} <img src={triangleImg} alt="triangle" className={`events__filter-triangle ${cityActiveTriangle}`} /></div>
           <ul className={`events__filter-ul-city ${cityActive}`}>
             <li className="events__filter-li" onClick={() => chooseCity('Москва')}>Москва</li>

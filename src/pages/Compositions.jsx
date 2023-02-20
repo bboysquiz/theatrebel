@@ -4,6 +4,7 @@ import Catalog from '../components/catalog/Catalog'
 
 
 const Compositions = () => {
+  window.scrollTo(0, 0);
   return (
     <div>
         <Header />

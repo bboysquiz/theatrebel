@@ -7,7 +7,7 @@ const Button = () => {
     <button 
         className="mainscreen__button"
     >
-        <span>Написать нам</span>
+        Написать нам
         <img src={pencil} alt="pencil" className="mainscreen__button-pencil" />
     </button>
   )
