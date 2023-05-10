@@ -12,6 +12,7 @@ import downloadImg from '../assets/download-icon.svg'
 import './union.sass'
 
 const Union = () => {
+    window.scrollTo(0, 0);
     const srcSame = 'https://theatrebel.ru/api/plays'
     const [sameArray, setSameArray] = useState([])
     useEffect(() => {
