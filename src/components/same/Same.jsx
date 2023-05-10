@@ -1,10 +1,9 @@
-import './events.sass'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
-const EventItem = (props) => {
-
+const Same = (props) => {
     return (
-        <Link to={`/union/${props.id}`}  className='events__block-item' style={{ backgroundImage: `url(${props.image})` }}>
+        <Link to={`/union/${props.id}`} className='events__block-item' style={{ backgroundImage: `url(${props.image})` }}>
             <div className="events__block-item-info">
                 <h3 className="events__block-item-title">{props.name}</h3>
                 <p className="events__block-item-autor">
@@ -24,7 +23,6 @@ const EventItem = (props) => {
         </Link>
     )
 
-
 }
 
-export default EventItem
+export default Same

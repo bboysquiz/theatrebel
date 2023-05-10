@@ -1,0 +1,62 @@
+@import '../assets/variables.sass'
+
+.union
+    background-color: $bg-default-second
+    &__container
+        width: 1440px
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+        padding: 32px 41px 32px 40px
+    &__wrapper
+        width: 659px
+    &__title
+        font-weight: 600
+        font-style: italic
+        font-size: 64px
+        line-height: 76.8px
+        color: $title-color
+        &-span
+            color: rgba(127, 131, 139, .7)
+    &__photo
+        width: 659px
+        height: 354px
+    &__download
+        &-button
+            background: transparent
+            border: 1px solid rgba(255, 255, 255, 0.9)
+            border-radius: 12px
+            height: 48px
+            margin-top: 44px
+            color: rgba(255, 255, 255, 0.9)
+            display: flex
+            justify-content: space-between
+            padding-left: 25px
+            padding-right: 25px
+            align-items: center
+            font-size: 18px
+            font-weight: 400
+            font-family: Inter
+            line-height: 48px
+    &__same
+        &-wrapper
+            display: flex
+            width: 1359px
+            margin: 0 auto
+            justify-content: flex-start
+            flex-wrap: wrap
+        &-title
+            font-family: Inter
+            font-weight: 800
+            font-size: 32px
+            line-height: 38.4px
+            color: $title-color
+.download-scenario
+    width: 255px
+.same
+    &__block
+        display: flex
+        width: 1350px
+        flex-wrap: wrap
+        justify-content: space-between
+        margin: 0 auto
