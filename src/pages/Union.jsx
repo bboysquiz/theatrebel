@@ -13,7 +13,7 @@ import './union.sass'
 
 const Union = () => {
     window.scrollTo(0, 0);
-    const srcSame = 'https://theatrebel.ru/api/plays'
+    const srcSame = 'https://theatrebel.ru/api/productions'
     const [sameArray, setSameArray] = useState([])
     useEffect(() => {
         axios
@@ -23,7 +23,7 @@ const Union = () => {
             })
     }, [])
     const { id } = useParams();
-    const src = `https://theatrebel.ru/api/plays/${id}`
+    const src = `https://theatrebel.ru/api/productions/${id}`
     const [unionData, setUnionData] = useState([])
     const [title, setTitle] = useState('')
     const [writer, setWriter] = useState('')
@@ -33,18 +33,17 @@ const Union = () => {
             .get(src)
             .then(data => {
                 setUnionData(data.data)
-                setTitle(data.data.name)
-                setWriter(data.data.writers[0].name)
-                setPhoto(data.data.image)
+                setTitle(data.data.play.name)
+                setWriter(data.data.play.writers[0].name)
+                setPhoto(data.data.play.image)
             })
     }, [])
-    console.log(unionData)
     return (
         <div>
             <Header />
             <div className="union">
                 <div className="union__container">
-                    <BreadCrumbs {...unionData} />
+                    <BreadCrumbs />
                     <div className="union__wrapper">
                         <h2 className="union__title">{title} / <span className="union__title-span">{writer}</span></h2>
                         <img src={photo} alt="main-photo" className="union__photo" />

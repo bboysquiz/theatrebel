@@ -12,7 +12,7 @@ const MainScreen = () => {
             <div className="mainscreen__info-block">
                 <h1 className='mainscreen__title'>Theatrebel</h1>
                 <h2 className="mainscreen__subtitle">Путеводитель в мире театра</h2>
-                <p className="mainscreen__descr">Использовать строго по назначению! Мы еще допишем этот текст</p>
+                <p className="mainscreen__descr">Использовать строго по назначению!</p>
                 <Button />
             </div>
             <div className="mainscreen__image-block">

@@ -7,7 +7,7 @@ import EventFilter from './EventFilter'
 import { Link } from 'react-router-dom'
 
 const Events = () => {
-  const src = 'https://theatrebel.ru/api/plays'
+  const src = 'https://theatrebel.ru/api/productions'
   const [eventsArray, setEventsArray] = useState([])
   useEffect(() => {
     axios
@@ -16,7 +16,7 @@ const Events = () => {
         setEventsArray(data.data.content)
       })
   }, [])
-  console.log(eventsArray)
+   console.log(eventsArray)
   return (
     <div className='events'>
       <div className="events__container">

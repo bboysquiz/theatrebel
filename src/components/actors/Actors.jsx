@@ -1,14 +1,29 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 import './actors.sass'
 
 const Actors = (props) => {
+  const { id } = useParams();
+  const src = `https://theatrebel.ru/api/productions/${id}`
+  const [actor, setActor] = useState([])
+  useEffect(() => {
+    axios
+      .get(src)
+      .then(data => {
+        setActor(data.data.actors)
+      })
+  }, [])
+
+
   return (
     <div className="union__actors-wrapper">
-        <h3 className="union__actors-title">Актеры</h3>
-        <img src={props.image} alt="actor" className="union__actors-photo union__actors-photo-1" />
-        <img src={props.image} alt="actor" className="union__actors-photo union__actors-photo-2" />
-        <img src={props.image} alt="actor" className="union__actors-photo union__actors-photo-3" />
-        <img src={props.image} alt="actor" className="union__actors-photo union__actors-photo-4" />
+      <h3 className="union__actors-title">Актеры</h3>
+      {actor.map((el, index) => {
+        return (
+          <img src={el.photo} key={index} alt="actor" className={`union__actors-photo union__actors-photo-${index + 1}`} />
+        )
+      })}
     </div>
   )
 }

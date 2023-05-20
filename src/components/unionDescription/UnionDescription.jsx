@@ -1,42 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 import './unionDescription.sass'
 import downloadImg from '../../assets/download-icon.svg' 
 
 const UnionDescription = () => {
+    const { id } = useParams();
+    const src = `https://theatrebel.ru/api/productions/${id}`
+    const [description, setDescription] = useState('')
+    const [title, setTitle] = useState('')
+    const [writer, setWriter] = useState('')
+    const [date, setDate] = useState('')
+    useEffect(() => {
+        axios
+            .get(src)
+            .then(data => {
+                setDescription(data.data.description)
+                setTitle(data.data.play.name)
+                setWriter(data.data.play.writers[0].name)
+                setDate(data.data.play.date)
+            })
+    }, [])
     return (
         <div className="union__descr-wrapper">
             <p className="union__descr">
-                Один из самых значимых театральных режиссеров
-                современности Лев Додин поставил «Чайку» Чехова про
-                невыносимую зыбкость бытия, у которого все же есть точка
-                опоры. Всем известна формула чеховских пьес, выведенная им
-                самим: «Люди обедают, только обедают. А в это время слагается
-                их счастье и разбиваются их жизни». Так вот Додин, опираясь
-                на Чехова, взялся осмыслить сам момент разрушения и жизнь после него.
+                {description}
             </p>
-            <p className="union__descr">
-                Начать с того, что у Додина в прямом смысле не «обедают». Как
-                и в предыдущем его спектакле — лаконичных экспрессивных
-                «Карамазовых», где человеку как таковому ставится
-                смертельный диагноз, — быт на сцене начисто отсутствует.
-                Постоянный соавтор Додина художник Александр Боровский,
-                оттолкнувшись от двух ключевых чеховских деталей — места
-                действия (берег озера) и страсти самого Чехова и его героя и
-                коллеги, беллетриста Тригорина, к рыбной ловле, — придумал
-                максимально объемную метафору пространства: весь планшет
-                сцены заставлен лодками в натуральную величину.
-            </p>
-            <p className="union__descr">
-                Но это не простые лодки — благодаря специальному материалу
-                днища они при любом к ним прикосновении теряют равновесие,
-                так что возникает иллюзия покачивания на волнах, а
-                непрерывный звук плеска воды в качестве саунд-трека делает
-                эту иллюзию полной. Время от времени в записи звучит еще и
-                «Прекрасный голубой Дунай» Штрауса — но лишь как
-                воспоминание о былой счастливой жизни, возврата к которой нет.
-            </p>
-            <h2 className="union__descr-title">Чайка / <span className="union__descr-title_grey">Лев Додин</span></h2>
-            <h2 className="union__date">1896</h2>
+            <h2 className="union__descr-title">{title} / <span className="union__descr-title_grey">{writer}</span></h2>
+            <h2 className="union__date">{date}</h2>
             <span className="union__date-descr">Дата первого издания*</span>
             <button className="union__download-button download-text">
                 <img src={downloadImg} alt="download" className="union__download-icon" />

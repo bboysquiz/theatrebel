@@ -8,7 +8,7 @@ import filterButton from '../../assets/filter.svg'
 import { Link } from 'react-router-dom'
 
 const Catalog = () => {
-  const src = 'https://theatrebel.ru/api/plays'
+  const src = 'https://theatrebel.ru/api/productions'
   const [eventsArray, setEventsArray] = useState([])
   useEffect(() => {
     axios
